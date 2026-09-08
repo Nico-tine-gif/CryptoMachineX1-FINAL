@@ -6,7 +6,7 @@ package.domain = org.kivy.cryptomachinex1
 source.dir =.
 source.include_exts = py
 source.include_patterns = main.py
-source.exclude_patterns = backup*, archive*, phase*, *backup*, *archive*, tests,.buildozer,.git, __pycache__, *.backup, *.bak
+source.exclude_patterns = backup*, archive*, phase*, *backup*, *archive*, tests,.buildozer,.git,__pycache__,*.backup,*.bak,*.pyc
 
 version = 0.1
 requirements = python3,kivy==2.3.0
@@ -22,6 +22,9 @@ android.api = 33
 android.minapi = 21
 android.ndk = 25b
 android.sdk = 33
+android.build_tools_version = 33.0.2
 android.accept_sdk_license_agreement = True
-android.archs = arm64-v8a, armeabi-v7a
+android.archs = arm64-v8a
 p4a.bootstrap = sdl2
+p4a.branch = master
+p4a.fork = kivy
