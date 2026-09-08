@@ -1,31 +1,19 @@
 [app]
-title = CryptoMachineX1
-package.name = cryptomachinex1
-package.domain = com.cryptomachinex1.app
+title = CryptoMasterX1
+package.name = cryptomasterx1
+package.domain = org.cmx1
 source.dir =.
-source.include_exts = py,png,jpg,kv,atlas,json,txt
-version = 0.1
-version.regex = __version__ = ['"]([^'"]+)['"]
-version.filename = %(source.dir)s/main.py
-requirements = python3==3.11.8,kivy==2.3.0,kivymd,pillow,certifi,charset-normalizer,idna,urllib3,requests,pycryptodome
+source.include_exts = py,png,jpg,kv,json,txt
+version = 1.0
+requirements = python3,kivy,requests,websocket-client,cryptography==3.4.8
 orientation = portrait
-fullscreen = 0
-
-[buildozer]
-log_level = 2
-
-[app:android]
-android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
+android.permissions = INTERNET,ACCESS_NETWORK_STATE,READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE
 android.api = 33
 android.minapi = 21
 android.ndk = 25b
-android.sdk = 33
-android.accept_sdk_license_agreement = True
-android.ant = auto
-p4a.branch = master
+android.archs = arm64-v8a
+android.accept_sdk_license = True
 p4a.bootstrap = sdl2
-android.archs = arm64-v8a, armeabi-v7a
-android.allow_backup = True
 
-[buildozer:android]
-# no extra
+[buildozer]
+log_level = 2
