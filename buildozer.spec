@@ -1,46 +1,31 @@
 [app]
-# Application name and package details
-title = CryptoMasterX1
-package.name = cryptomasterx1
-package.domain = org.cmx1
-
-# Source directory and file types to include
-source.dir = .
-source.include_exts = py,png,jpg,jpeg,kv,atlas,json,txt,html,ttf,otf
-source.exclude_dirs = .git,.github,.buildozer,bin,build,app,venv,__pycache__
-
-# App version
-version = 1.0.0
-
-# Python requirements (add only what your app imports)
-requirements = python3,kivy,requests,urllib3,charset-normalizer,certifi,idna,websocket-client,cryptography
-# Android specific settings
-android.ndk = 25b
-android.minapi = 21
-android.ndk_api = 21
-android.api = 33
-android.python_version = 3.11
-android.accept_sdk_license = True
-android.archs = arm64-v8a
-android.use_androidx = True
-android.allow_backup = True
-
-# Permissions (keep only what you need)
-android.permissions = INTERNET,ACCESS_NETWORK_STATE,WAKE_LOCK
-
-# Display settings
+title = CryptoMachineX1
+package.name = cryptomachinex1
+package.domain = com.cryptomachinex1.app
+source.dir =.
+source.include_exts = py,png,jpg,kv,atlas,json,txt
+version = 0.1
+version.regex = __version__ = ['"]([^'"]+)['"]
+version.filename = %(source.dir)s/main.py
+requirements = python3==3.11.8,kivy==2.3.0,kivymd,pillow,certifi,charset-normalizer,idna,urllib3,requests,pycryptodome
 orientation = portrait
 fullscreen = 0
 
-# iOS / macOS settings (optional, but included for completeness)
-osx.python_version = 3
-osx.kivy_version = 2.2.1
-
 [buildozer]
-
-# Build and output directories
 log_level = 2
-build_dir = ./.buildozer
-bin_dir = ./bin
 
-# Host Python version (should match your system's Python 3.11)
+[app:android]
+android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
+android.api = 33
+android.minapi = 21
+android.ndk = 25b
+android.sdk = 33
+android.accept_sdk_license_agreement = True
+android.ant = auto
+p4a.branch = master
+p4a.bootstrap = sdl2
+android.archs = arm64-v8a, armeabi-v7a
+android.allow_backup = True
+
+[buildozer:android]
+# no extra
