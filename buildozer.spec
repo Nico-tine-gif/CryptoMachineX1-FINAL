@@ -3,17 +3,22 @@ title = CryptoMasterX1
 package.name = cryptomasterx1
 package.domain = org.cmx1
 source.dir =.
-source.include_exts = py,png,jpg,kv,json,txt
+source.include_exts = py,txt,json
 version = 1.0
-requirements = python3,kivy,requests,websocket-client,cryptography==3.4.8
-orientation = portrait
-android.permissions = INTERNET,ACCESS_NETWORK_STATE,READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE
+requirements = python3,kivy
 android.api = 33
 android.minapi = 21
 android.ndk = 25b
-android.archs = arm64-v8a
 android.accept_sdk_license = True
-p4a.bootstrap = sdl2
-
+android.archs = arm64-v8a
+android.permissions = INTERNET,ACCESS_NETWORK_STATE
+orientation = portrait
 [buildozer]
 log_level = 2
+
+
+
+
+
+
+
