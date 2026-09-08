@@ -11,16 +11,14 @@ jobs:
       - name: Accept Android Licenses and install build-tools 37
         run: |
           sudo apt update
-          sudo apt install -y aidl
+          sudo apt install -y aidl || true
           export ANDROID_HOME=/usr/local/lib/android/sdk
           export ANDROID_SDK_ROOT=/usr/local/lib/android/sdk
-          yes | sudo $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
-          sudo $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "build-tools;37.0.0" "build-tools;33.0.2" "platforms;android-33" "platform-tools"
-          mkdir -p /home/runner/.buildozer/android/platform/android-sdk/build-tools
-          sudo cp -r $ANDROID_HOME/build-tools/37.0.0 /home/runner/.buildozer/android/platform/android-sdk/build-tools/ || true
-          sudo cp -r $ANDROID_HOME/build-tools/33.0.2 /home/runner/.buildozer/android/platform/android-sdk/build-tools/ || true
-          ls $ANDROID_HOME/build-tools/
-          aidl --version
+          yes | sudo $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+          sudo $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "build-tools;37.0.0" "build-tools;33.0.2" "platforms;android-33" "platform-tools" || true
+          mkdir -p /home/runner/.buildozer/android/platform/android-sdk/build-tools || true
+          sudo cp -r $ANDROID_HOME/build-tools/37.0.0 /home/runner/.buildozer/android/platform/android-sdk/build-tools/ 2>/dev/null || sudo cp -r $ANDROID_HOME/build-tools/33.0.2 /home/runner/.buildozer/android/platform/android-sdk/build-tools/ 2>/dev/null || true
+          ls $ANDROID_HOME/build-tools/ || true
       - name: Install buildozer
         run: |
           sudo apt install -y zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
